@@ -42,13 +42,48 @@ class ReavtureSpringProductApplicationTests extends AbstractTest {
 
 		int status = mvcResult.getResponse().getStatus();
 		assertEquals(200, status);
-		
+
 		String content = mvcResult.getResponse().getContentAsString();
-		System.out.println("Product Content :  "+ content);
+		System.out.println("Product Content :  " + content);
 
 		Product[] productList = super.mapFromJson(content, Product[].class);
 		assertEquals(productList.length, 2);
 
 	}
 
+	@Test
+	void testUpdateProduct() throws Exception {
+
+		Product product = new Product();
+		product.setProductId(43);
+		product.setProductName("Monitor");
+		product.setPrice(9800);
+		product.setQuantityOnHand(100);
+
+		// convert the object into json
+		String inputJson = super.mapToJson(product);
+
+		MvcResult mvcResult = mvc
+				.perform(MockMvcRequestBuilders.put(restURL.toString()).contentType(MediaType.APPLICATION_JSON_VALUE)
+						.content(inputJson)).andReturn();
+
+		int status = mvcResult.getResponse().getStatus();
+		assertEquals(200, status);
+		String successMessage = "Product with product id :" + product.getProductId() + " updated successfully";
+		String content = mvcResult.getResponse().getContentAsString();
+		assertEquals(content, successMessage);
+
+	}
+
+	//--Hands on -- test delete method
+	
+	@Test
+	void testDeleteProduct() throws Exception {
+
+		String deleteURL = restURL.toString() + "/2";
+		
+		//code to test delete method
+
+	}
+	
 }

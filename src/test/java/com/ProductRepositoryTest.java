@@ -9,13 +9,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.training.model.Product;
-import com.training.repository.ProductRepository;
+import com.training.repository.ProductDAO;
 
 @SpringBootTest
 public class ProductRepositoryTest {
 
 	@Autowired
-	private ProductRepository productRepository;
+	private ProductDAO productRepository;
 	
 	@Test
 	@DisplayName("Testing Repository save")
