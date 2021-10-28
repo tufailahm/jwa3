@@ -10,4 +10,9 @@ public class HomeController {
 	public String home() {
 		return "---------Welcome to Revature APP --------";
 	}
+	
+	@GetMapping("/")
+	public String welcome() {
+		return "Welcome, Mohammad Tufail Ahmed.";
+	}
 }

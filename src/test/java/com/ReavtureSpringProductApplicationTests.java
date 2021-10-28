@@ -11,17 +11,19 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.web.client.RestTemplate;
 
 import com.training.model.Product;
-
+/**
+ * 
+ * @author tufai
+ * Test the rest API - product CRUD operations
+ */
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(value = MethodOrderer.OrderAnnotation.class)
 class ReavtureSpringProductApplicationTests extends AbstractTest {
@@ -30,6 +32,7 @@ class ReavtureSpringProductApplicationTests extends AbstractTest {
 	private String port;
 
 	int productId =0;
+	
 	private String baseURL = "http://localhost";
 
 	URL restURL;
@@ -38,7 +41,7 @@ class ReavtureSpringProductApplicationTests extends AbstractTest {
 	public void setUp() throws MalformedURLException {
 		super.setUp();
 		productId = 899;
-		restURL = new URL(baseURL + ":" + port + "/product");
+		restURL = new URL(baseURL + ":" + port + "/product");	
 	}
 
 	@Test
@@ -66,7 +69,7 @@ class ReavtureSpringProductApplicationTests extends AbstractTest {
 	void testUpdateProduct() throws Exception {
 
 		Product product = new Product();
-		product.setProductId(productId);		//100
+		product.setProductId(productId);		//899
 		product.setProductName("Monitor");
 		product.setPrice(9800);
 		product.setQuantityOnHand(100);
@@ -104,7 +107,7 @@ class ReavtureSpringProductApplicationTests extends AbstractTest {
 	void testSaveProduct() throws Exception {
 
 		Product product = new Product();
-		product.setProductId(productId);		//100
+		product.setProductId(productId);		//899
 		product.setProductName("HPLaptop");
 		product.setPrice(9800);
 		product.setQuantityOnHand(100);
