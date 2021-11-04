@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -134,6 +135,7 @@ class ReavtureSpringProductApplicationTests extends AbstractTest {
 	@Test
 	@Order(4)
 	@DisplayName("Testing product delete functionality")
+	@Disabled
 	void testDeleteProduct() throws Exception {
 		//localhost:9090/product/2	- DELETE
 		String deleteURL = restURL.toString() + "/"+productId;		//100

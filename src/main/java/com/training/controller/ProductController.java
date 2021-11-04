@@ -24,7 +24,7 @@ import com.training.service.ProductService;
 //CRUD - operation completed successfully
 @RestController
 @RequestMapping("product")
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProductController {
 
 	@Autowired
